@@ -22,3 +22,5 @@ autocmd FileType make setlocal noexpandtab      " for makefiles, tabs need to be
 "###### UI Config ######
 set number          " show line numbers
 set cursorline		" highlight current line
+set wildmenu        " visual autocomplete
+set showmatch       " highlights matching brackets
