@@ -1,4 +1,4 @@
-" From https://github.com/leafgarland/typescript-vim
+" By leafgarland from https://github.com/leafgarland/typescript-vim
 
 " Vim syntax file
 " Language: typescript
