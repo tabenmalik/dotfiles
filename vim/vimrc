@@ -21,3 +21,7 @@ set cursorline		" highlight current line
 set wildmenu        " visual autocomplete
 set showmatch       " highlights matching brackets
 filetype indent on  " load filetype-specific indent files
+set cc=80           " sets a column at the 80 mark
+set mouse=a         " allows mouse support
+set statusline+=%F  " shows the current file name in status line
+set laststatus=2    " turns on the status line
