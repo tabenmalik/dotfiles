@@ -6,7 +6,8 @@ syntax enable		" enable syntax processing
 
 "###### Spaces and Tabs ######
 " default settings
-set tabstop=4		" number of visual spaces per tab when readind in tabs
+set tabstop=4		" number of visual spaces per tab when reading in tabs
+set shiftwidth=4    " 
 set softtabstop=4	" number of spaces in tab when editing
 set expandtab		" tabs are spaces
 
@@ -19,3 +20,4 @@ set number relativenumber " show hybrid line numbers
 set cursorline		" highlight current line
 set wildmenu        " visual autocomplete
 set showmatch       " highlights matching brackets
+filetype indent on  " load filetype-specific indent files
