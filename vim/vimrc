@@ -24,3 +24,4 @@ set number          " show line numbers
 set cursorline		" highlight current line
 set wildmenu        " visual autocomplete
 set showmatch       " highlights matching brackets
+set number relativenumber " special hybrid line numbering
