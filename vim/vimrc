@@ -4,14 +4,10 @@
 colorscheme badwolf	" color scheme from Steve Losh http://stevelosh.com/projects/badwolf
 syntax enable		" enable syntax processing
 
-" Opening typescript files sets the filetype to xml
-" Line below overrides this for *.ts files
-" Determined by in issue thread #96 of typescript-vim https://github.com/leafgarland/typescript-vim/issues/96#issuecomment-247805808
-autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
-
 "###### Spaces and Tabs ######
 " default settings
-set tabstop=4		" number of visual spaces per tab when readind in tabs
+set tabstop=4		" number of visual spaces per tab when reading in tabs
+set shiftwidth=4    " 
 set softtabstop=4	" number of spaces in tab when editing
 set expandtab		" tabs are spaces
 
@@ -20,8 +16,12 @@ autocmd FileType make setlocal noexpandtab      " for makefiles, tabs need to be
 
 
 "###### UI Config ######
-set number          " show line numbers
+set number relativenumber " show hybrid line numbers
 set cursorline		" highlight current line
 set wildmenu        " visual autocomplete
 set showmatch       " highlights matching brackets
-set number relativenumber " special hybrid line numbering
+filetype indent on  " load filetype-specific indent files
+set cc=80           " sets a column at the 80 mark
+set mouse=a         " allows mouse support
+set statusline+=%F  " shows the current file name in status line
+set laststatus=2    " turns on the status line

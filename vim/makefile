@@ -7,5 +7,8 @@ install:
 	cp -r ./colors ~/.vim/
 	cp -r ./indent ~/.vim/
 	cp -r ./syntax ~/.vim/
+	cp -r ./ftdetect ~/.vim/
+	cp -r ./ftplugin ~/.vim/
+	cp -r ./compiler ~/.vim/
 
 update: install
