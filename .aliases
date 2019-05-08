@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# cd aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Git aliases
+alias g="git"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gcam="git commit -a -m"
+alias gco="git checkout"
