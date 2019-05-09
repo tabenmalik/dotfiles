@@ -6,9 +6,18 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Git aliases
+# git aliases
 alias g="git"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
 alias gco="git checkout"
+
+# ls aliases
+# Output in long format and with classifier characters
+alias l="ls -lF --color"
+# Output all except . and .. in long format with classifiers
+alias la="ls -lAhF --color" 
+# Always output in color when using ls
+alias ls="command ls --color"
+
