@@ -1,0 +1,3 @@
+[submodule "vim/pack/colors/start/badwolf"]
+	path = vim/pack/colors/start/badwolf
+	url = git@github.com:sjl/badwolf.git
