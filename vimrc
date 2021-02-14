@@ -1,7 +1,8 @@
 " Based on the vimrc by Doug Black http://dougblack.io/words/a-good-vimrc.html
 
 "###### Color and syntax ######
-colorscheme gruvbox	" color scheme from Steve Losh http://stevelosh.com/projects/badwolf
+set background=dark 
+colorscheme gruvbox	" color scheme
 syntax enable		" enable syntax processing
 
 "###### Spaces and Tabs ######
