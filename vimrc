@@ -11,17 +11,15 @@ set shiftwidth=4    "
 set softtabstop=4	" number of spaces in tab when editing
 set expandtab		" tabs are spaces
 
-" makefile settings
-autocmd FileType make setlocal noexpandtab      " for makefiles, tabs need to be actual tabs
-
-
 "###### UI Config ######
 set number relativenumber " show hybrid line numbers
 set cursorline		" highlight current line
 set wildmenu        " visual autocomplete
 set showmatch       " highlights matching brackets
-filetype indent on  " load filetype-specific indent files
 set cc=80           " sets a column at the 80 mark
 set mouse=a         " allows mouse support
 set statusline+=%F  " shows the current file name in status line
 set laststatus=2    " turns on the status line
+
+filetype on
+filetype plugin indent on
