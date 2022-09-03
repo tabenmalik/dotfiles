@@ -6,7 +6,8 @@ SAVEHIST=10000000
 # man zshoptions
 # extendedglob: Treat #, ~, ^ characters as part of filename patterns
 # nomatch: error if glob does not match any files
-setopt extendedglob nomatch
+# interactivecomments: allows comments in interactive shell.
+setopt extendedglob nomatch interactivecomments
 
 # autocd: auto cd if command is name of directory
 # beep: beep on error. I loathe beeps.
@@ -20,6 +21,6 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/taben/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+autoload -U compinit && compinit
+bindkey '\eOA' history-beginning-search-backward
+bindkey '\eOB' history-beginning-search-forward
