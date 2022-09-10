@@ -24,3 +24,6 @@ zstyle :compinstall filename '/home/taben/.zshrc'
 autoload -U compinit && compinit
 bindkey '\eOA' history-beginning-search-backward
 bindkey '\eOB' history-beginning-search-forward
+
+alias cp='cp -i'
+alias mv='mv -i'
