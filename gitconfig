@@ -5,3 +5,7 @@
     added = green
     changed = yellow
     untracked = red
+[color "branch"]
+    current = cyan reverse
+    local = green
+    remote = red
