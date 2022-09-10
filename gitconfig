@@ -1,5 +1,7 @@
-[include]
-    path = ~/.gituser
-
-[core]
-	editor = vim
+[user]
+	email = tabenjmalik@gmail.com
+    name = Taben Malik
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
