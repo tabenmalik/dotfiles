@@ -22,8 +22,14 @@ bindkey -e
 zstyle :compinstall filename '/home/taben/.zshrc'
 
 autoload -U compinit && compinit
-bindkey '\eOA' history-beginning-search-backward
-bindkey '\eOB' history-beginning-search-forward
+
+# Binding the up and down arrow keys to searching history backwards
+# and forwards, respectively. Sets the cursor at the end of the line.
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '\eOA' history-beginning-search-backward-end
+bindkey '\eOB' history-beginning-search-forward-end
 
 alias cp='cp -i'
 alias mv='mv -i'
