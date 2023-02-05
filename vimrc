@@ -1,5 +1,7 @@
 " Based on the vimrc by Doug Black http://dougblack.io/words/a-good-vimrc.html
 
+set nowrap
+
 "###### Color and syntax ######
 set background=dark 
 colorscheme gruvbox	" color scheme
