@@ -26,5 +26,6 @@ set laststatus=2    " turns on the status line
 set noerrorbells    " turns off audio beep
 set visualbell t_vb=
 set incsearch       " Search as I am typing the search string
+set hlsearch        " Highlight all mataches in a search 
 filetype on
 filetype plugin indent on
