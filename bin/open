@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# bash strict mode
+set -euo pipefail; shopt -s failglob
+
+if [ $# -eq 0 ]
+then
+    xdg-open
+else
+    for file in "$@"
+    do
+        echo $file
+        xdg-open "$file"
+    done
+fi
