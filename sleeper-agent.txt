@@ -1,0 +1,13 @@
+[Sun Jul 31 12:50:53 CDT 2022] I am NOT plugged in
+[Sun Jul 31 12:51:05 CDT 2022] I am plugged in
+[Sun Jul 31 12:52:09 CDT 2022] I am NOT plugged in
+[Sun Jul 31 12:52:43 CDT 2022] I am NOT plugged in
+[Sun Jul 31 12:52:56 CDT 2022] I am NOT plugged in
+[Sun Jul 31 12:53:02 CDT 2022] I am NOT plugged in
+[Sun Jul 31 12:53:23 CDT 2022] I am plugged in
+1
+[Sun Jul 31 12:54:30 CDT 2022] I am plugged in
+0
+[Sun Jul 31 12:55:14 CDT 2022] I am NOT plugged in
+1
+[Sun Jul 31 12:55:26 CDT 2022] I am plugged in

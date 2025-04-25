@@ -1,0 +1,2 @@
+* alias pdfunite to have an explicit "out" arg?
+* turn off zsh aggresive autocorrect questions
