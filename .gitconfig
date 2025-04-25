@@ -1,0 +1,23 @@
+[core]
+    # I know how to escape it
+    editor = vim
+
+[blame]
+    coloring = repeatedLines
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+
+[color "branch"]
+    current = cyan reverse
+    local = green
+    remote = red
+
+[user]
+    email = tabenjmalik@gmail.com
+    name = Taben Malik
+
+[pull]
+    rebase = false
