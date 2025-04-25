@@ -1,0 +1,2 @@
+# Change suspend level based on existence of external power supply
+SUBSYSTEM=="power_supply", ACTION=="change", ENV{POWER_SUPPLY_NAME}=="ACAD", RUN+="/usr/local/bin/sleeper-agent.sh '$env{POWER_SUPPLY_ONLINE}'"
