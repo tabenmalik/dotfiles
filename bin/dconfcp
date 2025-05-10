@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# dconfcp /path/to/profile.txt /
+# dconfcp /path/to/profile1.txt /path/to/profile2.txt /
+# dconfcp -f ...
+# dconfcp -w | --watch ...
+# dconfcp -V | --version
+# dconfcp -h | --help
+
+PROGRAM=dconfcp
+VERSION=0.0.1
+
+usage () {
+    cat <<EOF
+Usage: $PROGRAM [OPTION]... [FROM_PROFILE] TO_PROFILE DIR
+EOF
+}
+
+version () {
+    cat <<EOF
+$PROGRAM $VERSION
+
+Written by Taben Malik
+EOF
+}
+
+TEMP=$(getopt -o '+fwVh' --long 'watch,version,help' -n "$PROGRAM" -- "$@")
+
+if [ $? -ne 0 ]
+then
+    echo "Try '$PROGRAM --help' for more information" >&2
+    exit 1
+fi
+
+eval set -- "$TEMP"
+unset TEMP
+
+load_args=()
+
+while true
+do
+    case "$1" in
+        '-f')
+            load_args+=("-f")
+            shift
+            continue
+        ;;
+        '-w'|'--watch')
+            echo 'Not implemented yet...'
+            exit 1
+            shift
+            continue
+        ;;
+        '-h'|'--help')
+            echo 'Option h'
+            usage
+            exit 0
+        ;;
+        '-V'|'--version')
+            echo 'Option V'
+            version
+            exit 0
+        ;;
+        '--')
+            shift
+            break
+        ;;
+        *)
+            echo 'Internal error!' >&2
+            exit 1
+        ;;
+    esac
+done
+
+if [ $# -ne 2 ] && [ $# -ne 3 ]
+then
+    echo 'Bad Taben'
+    usage
+    exit 1
+fi
+
+profile_from=$DCONF_PROFILE
+
+if [ $# -eq 3 ]
+then
+    profile_from=$1
+    shift
+fi
+
+profile_to=$1
+dir=$2
+shift 2
+
+DCONF_PROFILE=$profile_from dconf dump "$dir" | DCONF_PROFILE="$profile_to" dconf load "${load_args[@]}" "$dir"
