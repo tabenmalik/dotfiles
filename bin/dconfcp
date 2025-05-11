@@ -8,11 +8,11 @@
 # dconfcp -h | --help
 
 PROGRAM=dconfcp
-VERSION=0.0.1
+VERSION=0.0.2
 
 usage () {
     cat <<EOF
-Usage: $PROGRAM [OPTION]... [FROM_PROFILE] TO_PROFILE DIR
+Usage: $PROGRAM [OPTION]... [FROM_PROFILE] TO_PROFILE PATH
 EOF
 }
 
@@ -35,6 +35,7 @@ fi
 eval set -- "$TEMP"
 unset TEMP
 
+watch=0
 load_args=()
 
 while true
@@ -46,8 +47,7 @@ do
             continue
         ;;
         '-w'|'--watch')
-            echo 'Not implemented yet...'
-            exit 1
+            watch=1
             shift
             continue
         ;;
@@ -79,16 +79,50 @@ then
     exit 1
 fi
 
-profile_from=$DCONF_PROFILE
+PROFILE_FROM=$DCONF_PROFILE
 
 if [ $# -eq 3 ]
 then
-    profile_from=$1
+    PROFILE_FROM=$1
     shift
 fi
 
-profile_to=$1
-dir=$2
+
+PROFILE_TO=$1
+DCONF_PATH=$2
 shift 2
 
-DCONF_PROFILE=$profile_from dconf dump "$dir" | DCONF_PROFILE="$profile_to" dconf load "${load_args[@]}" "$dir"
+# TODO difference between copy dirs and copying keys
+dconfcpdir () {
+    dir=$1
+    DCONF_PROFILE=$PROFILE_FROM dconf dump "$dir" | DCONF_PROFILE="$PROFILE_TO" dconf load "${load_args[@]}" "$dir"
+}
+
+dconfcpkey () {
+    key=$1
+    DCONF_PROFILE=$PROFILE_TO dconf write "$key" "$(DCONF_PROFILE=$PROFILE_FROM dconf read "$key")"
+}
+
+
+dconfwatch () {
+    echo hello
+    while IFS= read -r key
+    do
+        echo $key
+        if [[ "$key" =~ ^/ ]]
+        then
+            echo copy!
+            dconfcpkey "$key"
+        fi
+    done < <(DCONF_PROFILE=$PROFILE_FROM dconf watch $DCONF_PATH)
+}
+
+if [ "$watch" -eq 1 ]
+then
+    dconfwatch "$DCONF_PATH"
+elif [[ "$DCONF_PATH" =~ /$ ]]
+then
+    dconfcpdir "$DCONF_PATH"
+else
+    dconfcpkey "$DCONF_PATH"
+fi
