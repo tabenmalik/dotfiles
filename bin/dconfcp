@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
-# dconfcp /path/to/profile.txt /
-# dconfcp /path/to/profile1.txt /path/to/profile2.txt /
-# dconfcp -f ...
-# dconfcp -w | --watch ...
-# dconfcp -V | --version
-# dconfcp -h | --help
-
 PROGRAM=dconfcp
-VERSION=0.0.2
+VERSION=0.0.3
 
 usage () {
     cat <<EOF
 Usage: $PROGRAM [OPTION]... [FROM_PROFILE] TO_PROFILE PATH
+Copy values from one dconf database (default from DCONF_PROFILE) to another.
+Copy all values changed during some period of time with --watch.
+
+Options:
+  -w, --watch        watch and copy changes of a key or directory
+  -f                 ignore changes to non-writable keys
+  -h, --help         display this help and exit
+  -V, --version      output version information and exit
 EOF
 }
 
@@ -52,12 +53,10 @@ do
             continue
         ;;
         '-h'|'--help')
-            echo 'Option h'
             usage
             exit 0
         ;;
         '-V'|'--version')
-            echo 'Option V'
             version
             exit 0
         ;;
@@ -92,7 +91,6 @@ PROFILE_TO=$1
 DCONF_PATH=$2
 shift 2
 
-# TODO difference between copy dirs and copying keys
 dconfcpdir () {
     dir=$1
     DCONF_PROFILE=$PROFILE_FROM dconf dump "$dir" | DCONF_PROFILE="$PROFILE_TO" dconf load "${load_args[@]}" "$dir"
