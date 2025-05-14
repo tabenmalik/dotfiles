@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROGRAM=dconfcp
-VERSION=0.0.3
+VERSION=0.0.4
 
 usage () {
     cat <<EOF
@@ -103,13 +103,10 @@ dconfcpkey () {
 
 
 dconfwatch () {
-    echo hello
     while IFS= read -r key
     do
-        echo $key
         if [[ "$key" =~ ^/ ]]
         then
-            echo copy!
             dconfcpkey "$key"
         fi
     done < <(DCONF_PROFILE=$PROFILE_FROM dconf watch $DCONF_PATH)
