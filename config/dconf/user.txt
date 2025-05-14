@@ -1,3 +1,11 @@
 [org/gnome/shell]
 disable-user-extensions=false
 enabled-extensions=['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'wintile@nowsci.com']
+
+[org/gnome/desktop/notifications]
+show-banners=true
+
+show-in-lock-screen=true
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
