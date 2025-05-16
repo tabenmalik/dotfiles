@@ -9,3 +9,6 @@ show-in-lock-screen=true
 
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
+
+text-scaling-factor=1.25
+
