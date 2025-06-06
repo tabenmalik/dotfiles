@@ -12,3 +12,5 @@ color-scheme='prefer-dark'
 
 text-scaling-factor=1.25
 
+[org/gnome/calculator]
+refresh-interval=0
