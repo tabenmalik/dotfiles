@@ -15,3 +15,5 @@
     local = green
     remote = red
 
+[fetch]
+    prune = true
