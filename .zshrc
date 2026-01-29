@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 path=("$HOME/.local/bin" "/usr/games/" $path)
 
 PS1='%F{blue}%~
@@ -44,5 +45,3 @@ export LESS_TERMCAP_se="${reset_color}"
 # underlining
 export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
-
-
