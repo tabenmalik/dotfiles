@@ -1,5 +1,7 @@
-path=("$HOME/bin" "/usr/games/" $path)
-export PATH
+path=("$HOME/.local/bin" "/usr/games/" $path)
+
+PS1='%F{blue}%~
+%(?.%F{green}.%F{red})%#%f '
 
 setopt interactivecomments
 
@@ -44,24 +46,3 @@ export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
 
 
-#plugins=(git colorize common-aliases docker docker-compose emoji fancy-ctrl-z git-prompt isodate perms pip python ssh themes)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/taben/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/taben/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/taben/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/taben/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-#--------------------------------------------------------------------------------------------------
-# Prompt
-PS1='%F{blue}%~
-%(?.%F{green}.%F{red})%#%f '
