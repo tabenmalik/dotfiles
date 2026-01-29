@@ -3,14 +3,14 @@
 set nowrap
 
 "###### Color and syntax ######
-set background=dark 
+set background=dark
 colorscheme gruvbox	" color scheme
 syntax enable		" enable syntax processing
 
 "###### Spaces and Tabs ######
 " default settings
 set tabstop=4		" number of visual spaces per tab when reading in tabs
-set shiftwidth=4    " 
+set shiftwidth=4    "
 set softtabstop=4	" number of spaces in tab when editing
 set expandtab		" tabs are spaces
 " Highlight unwanted extra whitespace
@@ -29,7 +29,7 @@ set laststatus=2    " turns on the status line
 set noerrorbells    " turns off audio beep
 set visualbell t_vb=
 set incsearch       " Search as I am typing the search string
-set hlsearch        " Highlight all mataches in a search 
+set hlsearch        " Highlight all mataches in a search
 filetype on
 filetype plugin indent on
 
