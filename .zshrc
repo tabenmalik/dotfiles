@@ -4,6 +4,15 @@ path=("$HOME/.local/bin" "/usr/games/" $path)
 PS1='%F{blue}%~
 %(?.%F{green}.%F{red})%#%f '
 
+function auto_precommit_install() {
+    if [ -d .git -a -f .pre-commit-config.yaml -a ! -x .git/hooks/pre-commit ] && command -v pre-commit &> /dev/null
+    then
+        pre-commit install
+    fi
+}
+
+precmd_functions+=(auto_precommit_install)
+
 setopt interactivecomments
 
 #--------------------------------------------------------------------------------------------------
