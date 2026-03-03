@@ -1,8 +1,31 @@
 #!/usr/bin/env zsh
+
+#
+# XDG Base Directory Compliance
+#
+
+# use xdg-ninja to learn if a dotfile can move
+
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+export PYTHON_HISTORY="$XDG_STATE_HOME"/python/python_history
+
+alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
+
+#
+#
+#
+
 path=("$HOME/.local/bin" "/usr/games/" $path)
 
 PS1='%F{blue}%~
 %(?.%F{green}.%F{red})%#%f '
+
 
 function auto_precommit_install() {
     if [ -d .git -a -f .pre-commit-config.yaml -a ! -x .git/hooks/pre-commit ] && command -v pre-commit &> /dev/null
@@ -22,7 +45,7 @@ setopt interactivecomments
 # the up/down arrow keys. The options `extended_history` and `inc_append_history_time` allow
 # recording runtimes of commands. Runtime in the history is preferable over runtime in the prompt
 # to reduce clutter of the prompt and maintain a record of the runtime.
-HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/zsh_history"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 SAVEHIST=1000000
