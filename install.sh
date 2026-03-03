@@ -11,4 +11,5 @@ function xpip() {
 
 xpip pre-commit
 
-cp -f ./.zshrc "${HOME}/.zshrc"
+mkdir -p "${HOME}/.config/zsh"
+cp -f ./.zshrc "${HOME}/.config/zsh/.zshrc"
