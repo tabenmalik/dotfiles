@@ -1,0 +1,3 @@
+set autoindent
+
+include ~/.config/nano/sls.nanorc
