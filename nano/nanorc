@@ -1,3 +1,17 @@
 set autoindent
+set casesensitive
+set multibuffer
+set regexp
+set smarthome
+set tabsize 4
+set tabstospaces
+
+# main
+bind ^H help all
+
+bind ^Q exit main
+bind ^G gotoline main
+bind ^/ comment main
+bind ^S savefile main
 
 include ~/.config/nano/sls.nanorc
