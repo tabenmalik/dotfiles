@@ -1,5 +1,5 @@
 [core]
-    editor = nano
+    editor = micro
 
 [user]
     email = tabenjmalik@gmail.com
