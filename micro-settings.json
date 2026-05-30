@@ -1,7 +1,12 @@
 {
+    "hlsearch": true,
+    "hltrailingws": true,
     "ignorecase": false,
+    "linter": false,
+    "parsecursor": true,
+    "ruler": false,
+    "tabstospaces": true,
     "*.sls": {
     	"tabsize": 2,
-    	"tabstospaces": true
     }
 }
