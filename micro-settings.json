@@ -1,0 +1,7 @@
+{
+    "ignorecase": false,
+    "*.sls": {
+    	"tabsize": 2,
+    	"tabstospaces": true
+    }
+}
