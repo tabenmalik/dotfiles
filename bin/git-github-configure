@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# inspired by asottile's git subcommands:
+#    github.com/asottile/scratch/tree/main/python
 from __future__ import annotations
 
 import argparse
