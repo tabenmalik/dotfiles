@@ -7,6 +7,6 @@
     "ruler": false,
     "tabstospaces": true,
     "*.sls": {
-    	"tabsize": 2,
+    	"tabsize": 2
     }
 }
