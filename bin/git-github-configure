@@ -49,16 +49,7 @@ def _get_creds() -> str:
         return github_auth["token"]
 
 
-def _set_delete_branch_on_merge(project: str, token: str) -> None:
-    url = f'{API_BASE}/repos/{project}'
-    data = {'delete_branch_on_merge': 'true'}
-    request_data = json.dumps(data).encode()
-    request = urllib.request.Request(url, method='PATCH', data=request_data)
-    request.add_header('Authorization', f'token {token}')
-    _ = urllib.request.urlopen(request)
-
-
-def _disable_wiki(project: str, token: str, force: bool) -> None:
+def _check_for_wiki(project: str, force: bool) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         wiki_repo = f'{SSH_GH}{project}.wiki'
         cmd = ('git', 'clone', '--depth=1', wiki_repo, temp_dir)
@@ -68,13 +59,6 @@ def _disable_wiki(project: str, token: str, force: bool) -> None:
                 f"Project has wiki contents at '{wiki_repo}'. "
                 'Use -f/--force to disable the wiki.',
             )
-
-    url = f'{API_BASE}/repos/{project}'
-    data = {'has_wiki': 'false'}
-    request_data = json.dumps(data).encode()
-    request = urllib.request.Request(url, method='PATCH', data=request_data)
-    request.add_header('Authorization', f'token {token}')
-    _ = urllib.request.urlopen(request)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -99,9 +83,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     project = _get_github_project(args.remote)
-    creds = _get_creds()
-    _set_delete_branch_on_merge(project, creds)
-    _disable_wiki(project, creds, args.force)
+    _check_for_wiki(project, args.force)
+
+    token = _get_creds()
+    update_fields = {
+        'delete_branch_on_merge': True,
+        'has_wiki': False,
+        'has_projects': False,
+    }
+    url = f'{API_BASE}/repos/{project}'
+    request_data = json.dumps(update_fields).encode()
+    request = urllib.request.Request(url, method='PATCH', data=request_data)
+    request.add_header('Authorization', f'token {token}')
+    urllib.request.urlopen(request)
     return 0
 
 
