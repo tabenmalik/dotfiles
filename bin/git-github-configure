@@ -49,7 +49,16 @@ def _get_creds() -> str:
         return github_auth["token"]
 
 
-def _check_for_wiki(project: str, force: bool) -> None:
+def _check_for_wiki(project: str, token: str, force: bool) -> None:
+    url = f'{API_BASE}/repos/{project}'
+    request = urllib.request.Request(url, method='GET')
+    request.add_header('Authorization', f'token {token}')
+    response = urllib.request.urlopen(request)
+    repo_info = json.load(response)
+
+    if not repo_info['has_wiki']:
+        return
+
     with tempfile.TemporaryDirectory() as temp_dir:
         wiki_repo = f'{SSH_GH}{project}.wiki'
         cmd = ('git', 'clone', '--depth=1', wiki_repo, temp_dir)
@@ -83,9 +92,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     project = _get_github_project(args.remote)
-    _check_for_wiki(project, args.force)
-
     token = _get_creds()
+
+    _check_for_wiki(project, token, args.force)
+
     update_fields = {
         'delete_branch_on_merge': True,
         'has_wiki': False,
