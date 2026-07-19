@@ -27,7 +27,7 @@ def _get_github_project(remote: str) -> str:
         )
 
     project = remote_url[len(SSH_GH):]
-    project = project.rstrip('.git')
+    project = project.removesuffix('.git')
     return project
 
 
