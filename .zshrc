@@ -17,6 +17,8 @@ export PYTHON_HISTORY="$XDG_STATE_HOME"/python/python_history
 
 alias wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts"
 
+alias mic=micro
+
 #
 #
 #
