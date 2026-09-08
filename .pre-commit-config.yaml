@@ -1,4 +1,8 @@
 repos:
+-   repo: meta
+    hooks:
+    -   id: check-hooks-apply
+    -   id: check-useless-excludes
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -32,3 +36,12 @@ repos:
     rev: v2.3.1
     hooks:
     -   id: mypy
+-   repo: local
+    hooks:
+    -   id: gitconfig-check
+        name: validate gitconfig
+        language: unsupported
+        # using deprecated `git config --list` to support older versions of git
+        entry: git config --file .gitconfig --list
+        pass_filenames: false
+        files: ^\.gitconfig$
