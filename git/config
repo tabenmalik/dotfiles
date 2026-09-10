@@ -1,5 +1,6 @@
 [core]
     editor = micro
+    excludesFile = ~/.config/git/ignore
 [fetch]
     prune = true
 [init]
