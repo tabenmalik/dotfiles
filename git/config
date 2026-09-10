@@ -1,12 +1,9 @@
 [core]
     editor = micro
-
+[fetch]
+    prune = true
+[init]
+    defaultBranch = main
 [user]
     email = tabenjmalik@gmail.com
     name = Taben Malik
-
-[fetch]
-    prune = true
-
-[init]
-    defaultBranch = main
