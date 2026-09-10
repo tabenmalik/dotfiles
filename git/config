@@ -1,0 +1,10 @@
+[core]
+    editor = micro
+    excludesFile = ~/.config/git/ignore
+[fetch]
+    prune = true
+[init]
+    defaultBranch = main
+[user]
+    email = tabenjmalik@gmail.com
+    name = Taben Malik
