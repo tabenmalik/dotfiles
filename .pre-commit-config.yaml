@@ -42,6 +42,6 @@ repos:
         name: validate gitconfig
         language: unsupported
         # using deprecated `git config --list` to support older versions of git
-        entry: git config --file .gitconfig --list
+        entry: git config --file git/config --list
         pass_filenames: false
-        files: ^\.gitconfig$
+        files: ^git/config$
